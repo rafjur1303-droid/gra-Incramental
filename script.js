@@ -2,8 +2,9 @@
 let money = 0;
 let multiplier = 0;
 let rebirth = 0;
-//=====(ADMIN)=====
 let superRebirth = 0;
+let mega = 0;
+//=====(ADMIN)=====
 let adminX = 1;
 //=====(UBGRADE 1)=====
 let up1Count = 0;
@@ -38,16 +39,16 @@ let up6Boost = 1;
 let up6Cap = 25;
 //=====(UBGRADE 7)=====
 let up7Count = 0;
-let up7Cost = 6;
+let up7Cost = 8;
 let up7Boost = 1;
 //=====(UBGRADE 8)=====
 let up8Count = 0;
-let up8Cost = 18;
+let up8Cost = 25;
 let up8Active = false;
 let up8Boost = 1;
 //=====(UBGRADE 9)=====
 let up9Count = 0;
-let up9Cost = 100;
+let up9Cost = 125;
 let up9Active = false;
 //=====(AUTO UPDATE EKRANU)=====
 let toUpgradeVis = false;
@@ -61,12 +62,13 @@ let up9Vis = false;
 let SRVis = false;
 let SRUpgVis = false;
 let ToResearchVis = false;
+let MeVis = false;
 //=====(RESEARCHERS)=====
 let researchers = 0;
-let researchersMoneyCost = 100000000000;
-let researchersMultiplierCost = 100000000;
-let researchersRebirthCost = 1000000;
-let researchersSuperRebirthCost = 1000;
+let researchersMoneyCost = 400000000000;
+let researchersMultiplierCost = 200000000;
+let researchersRebirthCost = 5000000;
+let researchersSuperRebirthCost = 2000;
 //=====(RESEARCHERS SPEED)=====
 let researchSpeedMoneyCost = 10000000000;
 let researchSpeedMultiplierCost = 25000000;
@@ -139,6 +141,92 @@ let up8Lv = 0
 let up8Scale = 2
 let up8BoostRe = 1
 let up8BoostActive = false
+//=====(UBGRADE 9 RESEARCH)=====
+let up9Researchers = 0
+let up9TimeIs = 0
+let up9TimeLeft = 600
+let up9Lv = 0
+let up9Scale = 1.6
+let up9BoostRe = 1
+let up9BoostActive = false
+//=====(UBGRADE 10 RESEARCH)=====
+let up10Researchers = 0
+let up10TimeIs = 0
+let up10TimeLeft = 1000
+let up10Lv = 0
+let up10Scale = 1.3
+let up10BoostRe = 1
+//=====(UBGRADE 11 RESEARCH)=====
+let up11Researchers = 0
+let up11TimeIs = 0
+let up11TimeLeft = 2400
+let up11Lv = 1
+let up11Scale = 1.8
+let up11BoostRe = 1
+let up11BoostActive = false
+//=====(UBGRADE 12 RESEARCH)=====
+let up12Researchers = 0
+let up12TimeIs = 0
+let up12TimeLeft = 10000
+let up12Lv = 0
+let up12Scale = 1.8
+let up12BoostRe = 1
+let up12BoostActive = false
+//=====(AUTO GAIN)=====
+let multiplierGain = 0;
+let multiplierGainTest = 0.1;
+let multiplierTime = 10;
+let multiplierTimeTest = 8;
+let multiplierGainResearchers = 0;
+let multiplierGainTimeIs = 0;
+let multiplierGainTimeLeft = 150;
+let multiplierScale = 1.7;
+let multiplierTimeResearchers = 0;
+let multiplierTimeTimeIs = 0;
+let multiplierTimeTimeLeft = 200;
+let multiplierGainLv = 0
+let multiplierTimeLv = 0
+
+let rebirthGain = 0;
+let rebirthGainTest = 0.1;
+let rebirthTime = 10;
+let rebirthTimeTest = 8;
+let rebirthGainResearchers = 0;
+let rebirthGainTimeIs = 0;
+let rebirthGainTimeLeft = 500;
+let rebirthScale = 1.9;
+let rebirthTimeResearchers = 0;
+let rebirthTimeTimeIs = 0;
+let rebirthTimeTimeLeft = 450;
+let rebirthGainLv = 0
+let rebirthTimeLv = 0
+
+let superRebirthGain = 0;
+let superRebirthGainTest = 0.1;
+let superRebirthTime = 10;
+let superRebirthTimeTest = 8;
+let superRebirthGainResearchers = 0;
+let superRebirthGainTimeIs = 0;
+let superRebirthGainTimeLeft = 900;
+let superRebirthScale = 2.2;
+let superRebirthTimeResearchers = 0;
+let superRebirthTimeTimeIs = 0;
+let superRebirthTimeTimeLeft = 920;
+let superRebirthGainLv = 0
+let superRebirthTimeLv = 0
+
+let up2ReVis = false;
+let up3ReVis = false;
+let up4ReVis = false;
+let up6ReVis = false;
+let up7ReVis = false;
+let up8ReVis = false;
+let up9ReVis = false;
+let up10ReVis = false;
+let up11ReVis = false;
+let up12ReVis = false;
+let RVis = false;
+let sRVis = false;
 //=====(ZAPIS)=====
 function saveGame() {
     let save = {
@@ -147,6 +235,7 @@ function saveGame() {
         multiplier: multiplier,
         rebirth: rebirth,
         superRebirth: superRebirth,
+        mega : mega,
         up1Count: up1Count,
         up1Cost: up1Cost,
         up1Boost: up1Boost,
@@ -255,6 +344,84 @@ function saveGame() {
         up8Scale : up8Scale,
         up8BoostRe : up8BoostRe,
         up8BoostActive : up8BoostActive,
+        up9Researchers : up9Researchers,
+        up9TimeIs : up9TimeIs,
+        up9TimeLeft : up9TimeLeft,
+        up9Lv : up9Lv,
+        up9Scale : up9Scale,
+        up9BoostRe : up9BoostRe,
+        up9BoostActive : up9BoostActive,
+        up10Researchers : up10Researchers,
+        up10TimeIs : up10TimeIs,
+        up10TimeLeft : up10TimeLeft,
+        up10Lv : up10Lv,
+        up10Scale : up10Scale,
+        up10BoostRe : up10BoostRe,
+        up11Researchers : up11Researchers,
+        up11TimeIs : up11TimeIs,
+        up11TimeLeft : up11TimeLeft,
+        up11Lv : up11Lv,
+        up11Scale : up11Scale,
+        up11BoostRe : up11BoostRe,
+        up11BoostActive : up11BoostActive,
+        up12Researchers : up12Researchers,
+        up12TimeIs : up12TimeIs,
+        up12TimeLeft : up12TimeLeft,
+        up12Lv : up12Lv,
+        up12Scale : up12Scale,
+        up12BoostRe : up12BoostRe,
+        up12BoostActive : up12BoostActive,
+        multiplierGain : multiplierGain,
+        multiplierGainTest : multiplierGainTest,
+        multiplierTime : multiplierTime,
+        multiplierTimeTest : multiplierTimeTest,
+        multiplierGainResearchers : multiplierGainResearchers,
+        multiplierGainTimeIs : multiplierGainTimeIs,
+        multiplierGainTimeLeft : multiplierGainTimeLeft,
+        multiplierScale : multiplierScale,
+        multiplierTimeResearchers : multiplierTimeResearchers,
+        multiplierTimeTimeIs : multiplierTimeTimeIs,
+        multiplierTimeTimeLeft : multiplierTimeTimeLeft,
+        multiplierGainLv : multiplierGainLv,
+        multiplierTimeLv : multiplierTimeLv,
+        rebirthGain : rebirthGain,
+        rebirthGainTest : rebirthGainTest,
+        rebirthTime : rebirthTime,
+        rebirthTimeTest : rebirthTimeTest,
+        rebirthGainResearchers : rebirthGainResearchers,
+        rebirthGainTimeIs : rebirthGainTimeIs,
+        rebirthGainTimeLeft : rebirthGainTimeLeft,
+        rebirthScale : rebirthScale,
+        rebirthTimeResearchers : rebirthTimeResearchers,
+        rebirthTimeTimeIs : rebirthTimeTimeIs,
+        rebirthTimeTimeLeft : rebirthTimeTimeLeft,
+        rebirthGainLv : rebirthGainLv,
+        rebirthTimeLv : rebirthTimeLv,
+        superRebirthGain : superRebirthGain,
+        superRebirthGainTest : superRebirthGainTest,
+        superRebirthTime : superRebirthTime,
+        superRebirthTimeTest : superRebirthTimeTest,
+        superRebirthGainResearchers : superRebirthGainResearchers,
+        superRebirthGainTimeIs : superRebirthGainTimeIs,
+        superRebirthGainTimeLeft : superRebirthGainTimeLeft,
+        superRebirthScale : superRebirthScale,
+        superRebirthTimeResearchers : superRebirthTimeResearchers,
+        superRebirthTimeTimeIs : superRebirthTimeTimeIs,
+        superRebirthTimeTimeLeft : superRebirthTimeTimeLeft,
+        superRebirthGainLv : superRebirthGainLv,
+        superRebirthTimeLv : superRebirthTimeLv,
+        up2ReVis : up2ReVis,
+        up3ReVis : up3ReVis,
+        up4ReVis : up4ReVis,
+        up6ReVis : up6ReVis,
+        up7ReVis : up7ReVis,
+        up8ReVis : up8ReVis,
+        up9ReVis : up9ReVis,
+        up10ReVis : up10ReVis,
+        up11ReVis : up11ReVis,
+        up12ReVis : up12ReVis,
+        RVis : RVis,
+        sRVis : sRVis,
     };
     localStorage.setItem("mojaGraSave", JSON.stringify(save));
     console.log("Gra zapisana!");
@@ -269,6 +436,7 @@ function loadGame() {
         multiplier = save.multiplier;
         rebirth = save.rebirth;
         superRebirth = save.superRebirth;
+        mega = save.mega;
         up1Count = save.up1Count;
         up1Cost = save.up1Cost;
         up1Boost = save.up1Boost;
@@ -377,6 +545,84 @@ function loadGame() {
         up8Scale = save.up8Scale;
         up8BoostRe = save.up8BoostRe;
         up8BoostActive = save.up8BoostActive;
+        up9Researchers = save.up9Researchers;
+        up9TimeIs = save.up9TimeIs;
+        up9TimeLeft = save.up9TimeLeft;
+        up9Lv = save.up9Lv;
+        up9Scale = save.up9Scale;
+        up9BoostRe = save.up9BoostRe;
+        up9BoostActive = save.up9BoostActive;
+        up10Researchers = save.up10Researchers;
+        up10TimeIs = save.up10TimeIs;
+        up10TimeLeft = save.up10TimeLeft;
+        up10Lv = save.up10Lv;
+        up10Scale = save.up10Scale;
+        up10BoostRe = save.up10BoostRe;
+        up11Researchers = save.up11Researchers;
+        up11TimeIs = save.up11TimeIs;
+        up11TimeLeft = save.up11TimeLeft;
+        up11Lv = save.up11Lv;
+        up11Scale = save.up11Scale;
+        up11BoostRe = save.up11BoostRe;
+        up11BoostActive = save.up11BoostActive;
+        up12Researchers = save.up12Researchers;
+        up12TimeIs = save.up12TimeIs;
+        up12TimeLeft = save.up12TimeLeft;
+        up12Lv = save.up12Lv;
+        up12Scale = save.up12Scale;
+        up12BoostRe = save.up12BoostRe;
+        up12BoostActive = save.up12BoostActive;
+        multiplierGain = save.multiplierGain;
+        multiplierGainTest = save.multiplierGainTest;
+        multiplierTime = save.multiplierTime;
+        multiplierTimeTest = save.multiplierTimeTest;
+        multiplierGainResearchers = save.multiplierGainResearchers;
+        multiplierGainTimeIs = save.multiplierGainTimeIs;
+        multiplierGainTimeLeft = save.multiplierGainTimeLeft;
+        multiplierScale = save.multiplierScale;
+        multiplierTimeResearchers = save.multiplierTimeResearchers;
+        multiplierTimeTimeIs = save.multiplierTimeTimeIs;
+        multiplierTimeTimeLeft = save.multiplierTimeTimeLeft;
+        multiplierGainLv = save.multiplierGainLv;
+        multiplierTimeLv = save.multiplierTimeLv;
+        rebirthGain = save.rebirthGain;
+        rebirthGainTest = save.rebirthGainTest;
+        rebirthTime = save.rebirthTime;
+        rebirthTimeTest = save.rebirthTimeTest;
+        rebirthGainResearchers = save.rebirthGainResearchers;
+        rebirthGainTimeIs = save.rebirthGainTimeIs;
+        rebirthGainTimeLeft = save.rebirthGainTimeLeft;
+        rebirthScale = save.rebirthScale;
+        rebirthTimeResearchers = save.rebirthTimeResearchers;
+        rebirthTimeTimeIs = save.rebirthTimeTimeIs;
+        rebirthTimeTimeLeft = save.rebirthTimeTimeLeft;
+        rebirthGainLv = save.rebirthGainLv;
+        rebirthTimeLv = save.rebirthTimeLv;
+        superRebirthGain = save.superRebirthGain;
+        superRebirthGainTest = save.superRebirthGainTest;
+        superRebirthTime = save.superRebirthTime;
+        superRebirthTimeTest = save.superRebirthTimeTest;
+        superRebirthGainResearchers = save.superRebirthGainResearchers;
+        superRebirthGainTimeIs = save.superRebirthGainTimeIs;
+        superRebirthGainTimeLeft = save.superRebirthGainTimeLeft;
+        superRebirthScale = save.superRebirthScale;
+        superRebirthTimeResearchers = save.superRebirthTimeResearchers;
+        superRebirthTimeTimeIs = save.superRebirthTimeTimeIs;
+        superRebirthTimeTimeLeft = save.superRebirthTimeTimeLeft;
+        superRebirthGainLv = save.superRebirthGainLv;
+        superRebirthTimeLv = save.superRebirthTimeLv;
+        up2ReVis = save.up2ReVis;
+        up3ReVis = save.up3ReVis;
+        up4ReVis = save.up4ReVis;
+        up6ReVis = save.up6ReVis;
+        up7ReVis = save.up7ReVis;
+        up8ReVis = save.up8ReVis;
+        up9ReVis = save.up9ReVis;
+        up10ReVis = save.up10ReVis;
+        up11ReVis = save.up11ReVis;
+        up12ReVis = save.up12ReVis;
+        RVis = save.RVis;
+        sRVis = save.sRVis;
         console.log("Gra wczytana!");
     }
 }
@@ -446,9 +692,21 @@ function buySuperRebirth() {
     if (rebirth >= 100) {
         money = 0;
         multiplier = 0;
-        let gain = round(((Math.log10(rebirth + 1.01) - 1) ** 2.2) * up6Boost * up7Boost * up8Boost * up1BoostRe * up3BoostRe);
+        let gain = round(((Math.log10(rebirth + 1.01) - 1) ** 2.2) * (mega + 1) * up6Boost * up7Boost * up8Boost * up1BoostRe * up3BoostRe);
         if (isFinite(gain) && gain > 0) superRebirth += gain;
         rebirth = 0;
+        updateUI();
+    }
+}
+//=====
+function buyMega() {
+    if (superRebirth >= 100) {
+        money = 0;
+        multiplier = 0;
+        rebirth = 0;
+        let gain = round(((Math.log10(superRebirth + 1.01) - 1) ** 2.3) * up9BoostRe * up10BoostRe * up11BoostRe);
+        if (isFinite(gain) && gain > 0) mega += gain;
+        superRebirth = 0;
         updateUI();
     }
 }
@@ -535,7 +793,7 @@ function Upgrade6Max() {
 function Upgrade7() {
     if(superRebirth >= up7Cost && up7Count < 5) {
         superRebirth -= up7Cost;
-        up7Cost *= 1.4;
+        up7Cost *= 1.6;
         up7Boost *= 1.2;
         up7Count++;
         updateUI();
@@ -544,7 +802,7 @@ function Upgrade7() {
 function Upgrade7Max() {
     while (superRebirth >= up7Cost && up7Count < 5) {
         superRebirth -= up7Cost;
-        up7Cost *= 1.4;
+        up7Cost *= 1.6;
         up7Boost *= 1.2;
         up7Count++;
         updateUI();
@@ -705,6 +963,15 @@ function Recall() {
     up6Researchers = 0;
     up7Researchers = 0;
     up8Researchers = 0;
+    up9Researchers = 0;
+    up10Researchers = 0;
+    up11Researchers = 0;
+    up12Researchers = 0;
+    multiplierTimeResearchers = 0;
+    multiplierGainResearchers = 0;
+    rebirthTimeResearchers = 0;
+    rebirthGainResearchers = 0;
+    superRebirthTimeResearchers = 0;
     currentResearchers = researchers;
 }
 function reserchers_add1(){
@@ -989,6 +1256,615 @@ function upgrade8Active() {
     updateUI();
     setTimeout(upgrade8Active, Math.round(researchTick / 2));
 }
+function upgrade9Research() {
+    if (researchersSpending < 0) {
+        if (Math.abs(researchersSpending) <= up9Researchers) {
+            up9Researchers += researchersSpending;
+            currentResearchers += Math.abs(researchersSpending);
+        }
+    }
+    else if (researchersSpending > 0) {
+        if (researchersSpending <= currentResearchers) {
+            up9Researchers += researchersSpending;
+            currentResearchers -= researchersSpending;
+        }
+    }
+}
+function upgrade9Active() {
+    let wynik = researchSpeedMoneyMulti * researchSpeedMultiplierMulti * researchSpeedRebirthMulti * researchSpeedSuperRebirthMulti * researchSpeedUpgradesMulti;
+    if (up9Researchers > 0) {
+        up9TimeIs += up9Researchers * (wynik / 2);
+        if (up9TimeIs >= up9TimeLeft) {
+            up9TimeIs -= up9TimeLeft;
+            up9TimeLeft *= up9Scale;
+            up9BoostRe *= 1.15;
+            up9BoostActive = true;
+            up9Lv += 1;
+        }
+    }
+    updateUI();
+    setTimeout(upgrade9Active, Math.round(researchTick / 2));
+}
+function upgrade10Research() {
+    if (researchersSpending < 0) {
+        if (Math.abs(researchersSpending) <= up10Researchers) {
+            up10Researchers += researchersSpending;
+            currentResearchers += Math.abs(researchersSpending);
+        }
+    }
+    else if (researchersSpending > 0) {
+        if (researchersSpending <= currentResearchers) {
+            up10Researchers += researchersSpending;
+            currentResearchers -= researchersSpending;
+        }
+    }
+}
+function upgrade10Active() {
+    let wynik = researchSpeedMoneyMulti * researchSpeedMultiplierMulti * researchSpeedRebirthMulti * researchSpeedSuperRebirthMulti * researchSpeedUpgradesMulti;
+    if (up10Researchers > 0) {
+        up10TimeIs += up10Researchers * (wynik / 2);
+        if (up10TimeIs >= up10TimeLeft) {
+            up10TimeIs -= up10TimeLeft;
+            up10TimeLeft *= up10Scale;
+
+            up10BoostRe *= 1.05;
+            up10Lv += 1;
+        }
+    }
+    updateUI();
+    setTimeout(upgrade10Active, Math.round(researchTick / 2));
+}
+function upgrade11Research() {
+    if (researchersSpending < 0) {
+        if (Math.abs(researchersSpending) <= up11Researchers) {
+            up11Researchers += researchersSpending;
+            currentResearchers += Math.abs(researchersSpending);
+        }
+    }
+    else if (researchersSpending > 0) {
+        if (researchersSpending <= currentResearchers) {
+            up11Researchers += researchersSpending;
+            currentResearchers -= researchersSpending;
+        }
+    }
+}
+function upgrade11Active() {
+    let wynik = researchSpeedMoneyMulti * researchSpeedMultiplierMulti * researchSpeedRebirthMulti * researchSpeedSuperRebirthMulti * researchSpeedUpgradesMulti;
+    if (up11Researchers > 0) {
+        up11TimeIs += up11Researchers * (wynik / 2);
+        if (up11TimeIs >= up11TimeLeft) {
+            up11TimeIs -= up11TimeLeft;
+            up11TimeLeft *= up11Scale;
+            up11BoostActive = true;
+            up11Lv += 1;
+        }
+    }
+    updateUI();
+    setTimeout(upgrade11Active, Math.round(researchTick / 2));
+}
+function upgrade12Research() {
+    if (up12Lv == 0){
+        if (researchersSpending < 0) {
+            if (Math.abs(researchersSpending) <= up12Researchers) {
+                up12Researchers += researchersSpending;
+                currentResearchers += Math.abs(researchersSpending);
+            }
+        }
+        else if (researchersSpending > 0) {
+            if (researchersSpending <= currentResearchers) {
+                up12Researchers += researchersSpending;
+                currentResearchers -= researchersSpending;
+            }
+        }
+   }
+}
+function upgrade12Active() {
+    let wynik = researchSpeedMoneyMulti * researchSpeedMultiplierMulti * researchSpeedRebirthMulti * researchSpeedSuperRebirthMulti * researchSpeedUpgradesMulti;
+    if (up12Researchers > 0 && up12Lv < 1) {
+        up12TimeIs += up12Researchers * (wynik / 2);
+        if (up12TimeIs >= up12TimeLeft) {
+            up12TimeIs -= up12TimeLeft;
+            up12TimeLeft *= up12Scale;
+            up12BoostActive = true;
+            up12Lv = "MAX";
+        }
+    }
+    if (up12Lv == "MAX") {
+        currentResearchers += up12Researchers;
+        up12Researchers = 0;
+    }
+    updateUI();
+    setTimeout(upgrade12Active, Math.round(researchTick / 2));
+}
+function multiplierGainAutomation() {
+    if (multiplierGainTest != "MAX"){
+        if (researchersSpending < 0) {
+            if (Math.abs(researchersSpending) <= multiplierGainResearchers) {
+                multiplierGainResearchers += researchersSpending;
+                currentResearchers += Math.abs(researchersSpending);
+            }
+        }
+        else if (researchersSpending > 0) {
+            if (researchersSpending <= currentResearchers) {
+                multiplierGainResearchers += researchersSpending;
+                currentResearchers -= researchersSpending;
+            }
+        }
+    }
+}
+function multiplierGainAutomationActive() {
+    let wynik = researchSpeedMoneyMulti * researchSpeedMultiplierMulti * researchSpeedRebirthMulti * researchSpeedSuperRebirthMulti * researchSpeedUpgradesMulti;
+    if (multiplierGainResearchers > 0 && multiplierGainTest != "MAX") {
+        multiplierGainTimeIs += multiplierGainResearchers * (wynik / 2);
+        if (multiplierGainTimeIs >= multiplierGainTimeLeft) {
+            multiplierGainTimeIs -= multiplierGainTimeLeft;
+            multiplierGainTimeLeft *= multiplierScale;
+            if (multiplierGainLv == 0) {
+                multiplierGain += 0.1;
+                multiplierGainTest += 0.1;
+            } else if (multiplierGainLv == 1) {
+                multiplierGain += 0.1;
+                multiplierGainTest += 0.3;
+            } else if (multiplierGainLv == 2) {
+                multiplierGain += 0.3;
+                multiplierGainTest += 0.5;
+            } else if (multiplierGainLv == 3) {
+                multiplierGain += 0.5;
+                multiplierGainTest += 1;
+            } else if (multiplierGainLv == 4) {
+                multiplierGain += 1;
+                multiplierGainTest += 3;
+            } else if (multiplierGainLv == 5) {
+                multiplierGain += 3;
+                multiplierGainTest += 5;
+            } else if (multiplierGainLv == 6) {
+                multiplierGain += 5;
+                multiplierGainTest += 10;
+            } else if (multiplierGainLv == 7) {
+                multiplierGain += 10;
+                multiplierGainTest += 5;
+            } else if (multiplierGainLv == 8) {
+                multiplierGain += 5;
+                multiplierGainTest += 15;
+            } else if (multiplierGainLv == 9) {
+                multiplierGain += 15;
+                multiplierGainTest += 10;
+            } else if (multiplierGainLv == 10) {
+                multiplierGain += 10;
+                multiplierGainTest += 20;
+            } else if (multiplierGainLv == 11) {
+                multiplierGain += 20;
+                multiplierGainTest += 30;
+            } else if (multiplierGainLv == 12) {
+                multiplierGain += 30;
+                multiplierGainTest = "MAX"
+            }
+            multiplierGainLv += 1;
+        }
+        if (multiplierGainTest == "MAX") {
+            currentResearchers += multiplierGainResearchers;
+            multiplierGainResearchers = 0;
+        }
+
+    }
+        updateUI();
+        setTimeout(multiplierGainAutomationActive, Math.round(researchTick / 2));
+}
+function multiplierTimeAutomation() {
+    if (multiplierTimeTest != "MAX"){
+        if (researchersSpending < 0) {
+            if (Math.abs(researchersSpending) <= multiplierTimeResearchers) {
+                multiplierTimeResearchers += researchersSpending;
+                currentResearchers += Math.abs(researchersSpending);
+            }
+        }
+        else if (researchersSpending > 0) {
+            if (researchersSpending <= currentResearchers) {
+                multiplierTimeResearchers += researchersSpending;
+                currentResearchers -= researchersSpending;
+            }
+        }
+    }
+}
+function multiplierTimeAutomationActive() {
+    let wynik = researchSpeedMoneyMulti * researchSpeedMultiplierMulti * researchSpeedRebirthMulti * researchSpeedSuperRebirthMulti * researchSpeedUpgradesMulti;
+    if (multiplierTimeResearchers > 0 && multiplierTimeTest != "MAX") {
+        multiplierTimeTimeIs += multiplierTimeResearchers * (wynik / 2);
+        if (multiplierTimeTimeIs >= multiplierTimeTimeLeft) {
+            multiplierTimeTimeIs -= multiplierTimeTimeLeft;
+            multiplierTimeTimeLeft *= multiplierScale;
+            if (multiplierTimeLv == 0) {
+                multiplierTime -= 2;
+                multiplierTimeTest -= 3;
+            }
+            else if (multiplierTimeLv == 1) {
+                multiplierTime -= 3;
+                multiplierTimeTest -= 1;
+            }
+            else if (multiplierTimeLv == 2) {
+                multiplierTime -= 1;
+                multiplierTimeTest -= 1;
+            }
+            else if (multiplierTimeLv == 3) {
+                multiplierTime -= 1;
+                multiplierTimeTest -= 1;
+            }
+            else if (multiplierTimeLv == 4) {
+                multiplierTime -= 1;
+                multiplierTimeTest -= 0.5;
+            }
+            else if (multiplierTimeLv == 5) {
+                multiplierTime -= 0.5;
+                multiplierTimeTest -= 0.5;
+            }
+            else if (multiplierTimeLv == 6) {
+                multiplierTime -= 0.5;
+                multiplierTimeTest -= 0.1;
+            }
+            else if (multiplierTimeLv == 7) {
+                multiplierTime -= 0.1;
+                multiplierTimeTest -= 0.1;
+            }
+            else if (multiplierTimeLv == 8) {
+                multiplierTime -= 0.1;
+                multiplierTimeTest -= 0.1;
+            }
+            else if (multiplierTimeLv == 9) {
+                multiplierTime -= 0.1;
+                multiplierTimeTest -= 0.1;
+            }
+            else if (multiplierTimeLv == 10) {
+                multiplierTime -= 0.1;
+                multiplierTimeTest -= 0.1;
+            }
+            else if (multiplierTimeLv == 11) {
+                multiplierTime -= 0.1;
+                multiplierTimeTest = "MAX";
+            }
+            multiplierTimeLv += 1;
+        }
+        if (multiplierTimeTest == "MAX") {
+            currentResearchers += multiplierTimeResearchers;
+            multiplierTimeResearchers = 0;
+        }
+    }
+    updateUI();
+    setTimeout(multiplierTimeAutomationActive, Math.round(researchTick / 2));
+}
+function rebirthGainAutomation() {
+    if (rebirthGainTest != "MAX"){
+        if (researchersSpending < 0) {
+            if (Math.abs(researchersSpending) <= rebirthGainResearchers) {
+                rebirthGainResearchers += researchersSpending;
+                currentResearchers += Math.abs(researchersSpending);
+            }
+        }
+        else if (researchersSpending > 0) {
+            if (researchersSpending <= currentResearchers) {
+                rebirthGainResearchers += researchersSpending;
+                currentResearchers -= researchersSpending;
+            }
+        }
+    }
+}
+function rebirthGainAutomationActive() {
+    let wynik = researchSpeedMoneyMulti * researchSpeedMultiplierMulti * researchSpeedRebirthMulti * researchSpeedSuperRebirthMulti * researchSpeedUpgradesMulti;
+    if (rebirthGainResearchers > 0 && rebirthGainTest != "MAX") {
+        rebirthGainTimeIs += rebirthGainResearchers * (wynik / 2);
+        if (rebirthGainTimeIs >= rebirthGainTimeLeft) {
+            rebirthGainTimeIs -= rebirthGainTimeLeft;
+            rebirthGainTimeLeft *= rebirthScale;
+            if (rebirthGainLv == 0) {
+                rebirthGain += 0.1;
+                rebirthGainTest += 0.1;
+            } else if (rebirthGainLv == 1) {
+                rebirthGain += 0.1;
+                rebirthGainTest += 0.3;
+            } else if (rebirthGainLv == 2) {
+                rebirthGain += 0.3;
+                rebirthGainTest += 0.5;
+            } else if (rebirthGainLv == 3) {
+                rebirthGain += 0.5;
+                rebirthGainTest += 1;
+            } else if (rebirthGainLv == 4) {
+                rebirthGain += 1;
+                rebirthGainTest += 3;
+            } else if (rebirthGainLv == 5) {
+                rebirthGain += 3;
+                rebirthGainTest += 5;
+            } else if (rebirthGainLv == 6) {
+                rebirthGain += 5;
+                rebirthGainTest += 10;
+            } else if (rebirthGainLv == 7) {
+                rebirthGain += 10;
+                rebirthGainTest += 5;
+            } else if (rebirthGainLv == 8) {
+                rebirthGain += 5;
+                rebirthGainTest += 15;
+            } else if (rebirthGainLv == 9) {
+                rebirthGain += 15;
+                rebirthGainTest += 10;
+            } else if (rebirthGainLv == 10) {
+                rebirthGain += 10;
+                rebirthGainTest += 20;
+            } else if (rebirthGainLv == 11) {
+                rebirthGain += 20;
+                rebirthGainTest += 30;
+            } else if (rebirthGainLv == 12) {
+                rebirthGain += 30;
+                rebirthGainTest = "MAX"
+            }
+            rebirthGainLv += 1;
+        }
+        if (rebirthGainTest == "MAX") {
+            currentResearchers += rebirthGainResearchers;
+            rebirthGainResearchers = 0;
+        }
+
+    }
+    updateUI();
+    setTimeout(rebirthGainAutomationActive, Math.round(researchTick / 2));
+}
+function rebirthTimeAutomation() {
+    if (rebirthTimeTest != "MAX"){
+        if (researchersSpending < 0) {
+            if (Math.abs(researchersSpending) <= rebirthTimeResearchers) {
+                rebirthTimeResearchers += researchersSpending;
+                currentResearchers += Math.abs(researchersSpending);
+            }
+        }
+        else if (researchersSpending > 0) {
+            if (researchersSpending <= currentResearchers) {
+                rebirthTimeResearchers += researchersSpending;
+                currentResearchers -= researchersSpending;
+            }
+        }
+    }
+}
+function rebirthTimeAutomationActive() {
+    let wynik = researchSpeedMoneyMulti * researchSpeedMultiplierMulti * researchSpeedRebirthMulti * researchSpeedSuperRebirthMulti * researchSpeedUpgradesMulti;
+    if (rebirthTimeResearchers > 0 && rebirthTimeTest != "MAX") {
+        rebirthTimeTimeIs += rebirthTimeResearchers * (wynik / 2);
+        if (rebirthTimeTimeIs >= rebirthTimeTimeLeft) {
+            rebirthTimeTimeIs -= rebirthTimeTimeLeft;
+            rebirthTimeTimeLeft *= rebirthScale;
+            if (rebirthTimeLv == 0) {
+                rebirthTime -= 2;
+                rebirthTimeTest -= 3;
+            }
+            else if (rebirthTimeLv == 1) {
+                rebirthTime -= 3;
+                rebirthTimeTest -= 1;
+            }
+            else if (rebirthTimeLv == 2) {
+                rebirthTime -= 1;
+                rebirthTimeTest -= 1;
+            }
+            else if (rebirthTimeLv == 3) {
+                rebirthTime -= 1;
+                rebirthTimeTest -= 1;
+            }
+            else if (rebirthTimeLv == 4) {
+                rebirthTime -= 1;
+                rebirthTimeTest -= 0.5;
+            }
+            else if (rebirthTimeLv == 5) {
+                rebirthTime -= 0.5;
+                rebirthTimeTest -= 0.5;
+            }
+            else if (rebirthTimeLv == 6) {
+                rebirthTime -= 0.5;
+                rebirthTimeTest -= 0.1;
+            }
+            else if (rebirthTimeLv == 7) {
+                rebirthTime -= 0.1;
+                rebirthTimeTest -= 0.1;
+            }
+            else if (rebirthTimeLv == 8) {
+                rebirthTime -= 0.1;
+                rebirthTimeTest -= 0.1;
+            }
+            else if (rebirthTimeLv == 9) {
+                rebirthTime -= 0.1;
+                rebirthTimeTest -= 0.1;
+            }
+            else if (rebirthTimeLv == 10) {
+                rebirthTime -= 0.1;
+                rebirthTimeTest -= 0.1;
+            }
+            else if (rebirthTimeLv == 11) {
+                rebirthTime -= 0.1;
+                rebirthTimeTest = "MAX";
+            }
+            rebirthTimeLv += 1;
+        }
+        if (rebirthTimeTest == "MAX") {
+            currentResearchers += rebirthTimeResearchers;
+            rebirthTimeResearchers = 0;
+        }
+    }
+    updateUI();
+    setTimeout(rebirthTimeAutomationActive, Math.round(researchTick / 2));
+}
+function superRebirthGainAutomation() {
+    if (superRebirthGainTest != "MAX"){
+        if (researchersSpending < 0) {
+            if (Math.abs(researchersSpending) <= superRebirthGainResearchers) {
+                superRebirthGainResearchers += researchersSpending;
+                currentResearchers += Math.abs(researchersSpending);
+            }
+        }
+        else if (researchersSpending > 0) {
+            if (researchersSpending <= currentResearchers) {
+                superRebirthGainResearchers += researchersSpending;
+                currentResearchers -= researchersSpending;
+            }
+        }
+    }
+}
+function superRebirthGainAutomationActive() {
+    let wynik = researchSpeedMoneyMulti * researchSpeedMultiplierMulti * researchSpeedRebirthMulti * researchSpeedSuperRebirthMulti * researchSpeedUpgradesMulti;
+    if (superRebirthGainResearchers > 0 && superRebirthGainTest != "MAX") {
+        superRebirthGainTimeIs += superRebirthGainResearchers * (wynik / 2);
+        if (superRebirthGainTimeIs >= superRebirthGainTimeLeft) {
+            superRebirthGainTimeIs -= superRebirthGainTimeLeft;
+            superRebirthGainTimeLeft *= superRebirthScale;
+            if (superRebirthGainLv == 0) {
+                superRebirthGain += 0.1;
+                superRebirthGainTest += 0.1;
+            } else if (superRebirthGainLv == 1) {
+                superRebirthGain += 0.1;
+                superRebirthGainTest += 0.3;
+            } else if (superRebirthGainLv == 2) {
+                superRebirthGain += 0.3;
+                superRebirthGainTest += 0.5;
+            } else if (superRebirthGainLv == 3) {
+                superRebirthGain += 0.5;
+                superRebirthGainTest += 1;
+            } else if (superRebirthGainLv == 4) {
+                superRebirthGain += 1;
+                superRebirthGainTest += 3;
+            } else if (superRebirthGainLv == 5) {
+                superRebirthGain += 3;
+                superRebirthGainTest += 5;
+            } else if (superRebirthGainLv == 6) {
+                superRebirthGain += 5;
+                superRebirthGainTest += 10;
+            } else if (superRebirthGainLv == 7) {
+                superRebirthGain += 10;
+                superRebirthGainTest += 5;
+            } else if (superRebirthGainLv == 8) {
+                superRebirthGain += 5;
+                superRebirthGainTest += 15;
+            } else if (superRebirthGainLv == 9) {
+                superRebirthGain += 15;
+                superRebirthGainTest += 10;
+            } else if (superRebirthGainLv == 10) {
+                superRebirthGain += 10;
+                superRebirthGainTest += 20;
+            } else if (superRebirthGainLv == 11) {
+                superRebirthGain += 20;
+                superRebirthGainTest += 30;
+            } else if (superRebirthGainLv == 12) {
+                superRebirthGain += 30;
+                superRebirthGainTest = "MAX"
+            }
+            superRebirthGainLv += 1;
+        }
+        if (superRebirthGainTest == "MAX") {
+            currentResearchers += superRebirthGainResearchers;
+            superRebirthGainResearchers = 0;
+        }
+
+    }
+    updateUI();
+    setTimeout(superRebirthGainAutomationActive, Math.round(researchTick / 2));
+}
+function superRebirthTimeAutomation() {
+    if (superRebirthTimeTest != "MAX"){
+        if (researchersSpending < 0) {
+            if (Math.abs(researchersSpending) <= superRebirthTimeResearchers) {
+                superRebirthTimeResearchers += researchersSpending;
+                currentResearchers += Math.abs(researchersSpending);
+            }
+        }
+        else if (researchersSpending > 0) {
+            if (researchersSpending <= currentResearchers) {
+                superRebirthTimeResearchers += researchersSpending;
+                currentResearchers -= researchersSpending;
+            }
+        }
+    }
+}
+function superRebirthTimeAutomationActive() {
+    let wynik = researchSpeedMoneyMulti * researchSpeedMultiplierMulti * researchSpeedRebirthMulti * researchSpeedSuperRebirthMulti * researchSpeedUpgradesMulti;
+    if (superRebirthTimeResearchers > 0 && superRebirthTimeTest != "MAX") {
+        superRebirthTimeTimeIs += superRebirthTimeResearchers * (wynik / 2);
+        if (superRebirthTimeTimeIs >= superRebirthTimeTimeLeft) {
+            superRebirthTimeTimeIs -= superRebirthTimeTimeLeft;
+            superRebirthTimeTimeLeft *= superRebirthScale;
+            if (superRebirthTimeLv == 0) {
+                superRebirthTime -= 2;
+                superRebirthTimeTest -= 3;
+            }
+            else if (superRebirthTimeLv == 1) {
+                superRebirthTime -= 3;
+                superRebirthTimeTest -= 1;
+            }
+            else if (superRebirthTimeLv == 2) {
+                superRebirthTime -= 1;
+                superRebirthTimeTest -= 1;
+            }
+            else if (superRebirthTimeLv == 3) {
+                superRebirthTime -= 1;
+                superRebirthTimeTest -= 1;
+            }
+            else if (superRebirthTimeLv == 4) {
+                superRebirthTime -= 1;
+                superRebirthTimeTest -= 0.5;
+            }
+            else if (superRebirthTimeLv == 5) {
+                superRebirthTime -= 0.5;
+                superRebirthTimeTest -= 0.5;
+            }
+            else if (superRebirthTimeLv == 6) {
+                superRebirthTime -= 0.5;
+                superRebirthTimeTest -= 0.1;
+            }
+            else if (superRebirthTimeLv == 7) {
+                superRebirthTime -= 0.1;
+                superRebirthTimeTest -= 0.1;
+            }
+            else if (superRebirthTimeLv == 8) {
+                superRebirthTime -= 0.1;
+                superRebirthTimeTest -= 0.1;
+            }
+            else if (superRebirthTimeLv == 9) {
+                superRebirthTime -= 0.1;
+                superRebirthTimeTest -= 0.1;
+            }
+            else if (superRebirthTimeLv == 10) {
+                superRebirthTime -= 0.1;
+                superRebirthTimeTest -= 0.1;
+            }
+            else if (superRebirthTimeLv == 11) {
+                superRebirthTime -= 0.1;
+                superRebirthTimeTest = "MAX";
+            }
+            superRebirthTimeLv += 1;
+        }
+        if (superRebirthTimeTest == "MAX") {
+            currentResearchers += superRebirthTimeResearchers;
+            superRebirthTimeResearchers = 0;
+        }
+    }
+    updateUI();
+    setTimeout(superRebirthTimeAutomationActive, Math.round(researchTick / 2));
+}
+function mAutoGain() {
+    let gain = 1 * (rebirth + 1) * up2Boost * up3Boost * up7Boost * up1BoostRe;
+    if (gain > 0) {
+        multiplier += gain * (multiplierGain / 100)
+    }
+    updateUI();
+    setTimeout(mAutoGain, Math.round(multiplierTime * 1000));
+}
+function rAutoGain() {
+    let gain = round(((Math.log10(multiplier + 1.01) - 1) ** 2) * (superRebirth + 1) * up4Boost * up5Boost * up7Boost * up1BoostRe);
+    if (gain > 0) {
+        rebirth += gain * (rebirthGain / 100)
+    }
+    updateUI();
+    setTimeout(rAutoGain, Math.round(rebirthTime * 1000));
+}
+function srAutoGain() {
+    let gain = round(((Math.log10(rebirth + 1.01) - 1) ** 2.2) * (mega + 1)  * up6Boost * up7Boost * up8Boost * up1BoostRe * up3BoostRe);
+    if (gain > 0) {
+        superRebirth += gain * (superRebirthGain / 100)
+    }
+    updateUI();
+    setTimeout(srAutoGain, Math.round(superRebirthTime * 1000));
+}
 //=====(PRZYCISKI ADMIN)=====
 function AdminM(){
     multiplier += adminX;
@@ -1038,6 +1914,19 @@ window.onload = function() {
     upgrade6Active();
     upgrade7Active();
     upgrade8Active();
+    upgrade9Active();
+    upgrade10Active();
+    upgrade11Active();
+    upgrade12Active();
+    multiplierGainAutomationActive();
+    multiplierTimeAutomationActive();
+    rebirthGainAutomationActive();
+    rebirthTimeAutomationActive();
+    superRebirthGainAutomationActive();
+    superRebirthTimeAutomationActive();
+    mAutoGain();
+    rAutoGain();
+    srAutoGain();
 };
 //=====(AKTUALIZACJA EKRANU)=====
 function updateUI() {
@@ -1049,12 +1938,19 @@ function updateUI() {
     } else {
         rebirth_gain = 0;
     }
-    let test_superRebirth_gain = round(((Math.log10(rebirth + 1.01) - 1) ** 2.2) * up6Boost * up7Boost * up8Boost * up1BoostRe * up3BoostRe);
+    let test_superRebirth_gain = round(((Math.log10(rebirth + 1.01) - 1) ** 2.2) * (mega + 1)  * up6Boost * up7Boost * up8Boost * up1BoostRe * up3BoostRe);
     let superRebirth_gain = 0;
-    if (test_superRebirth_gain >= 1) {
+    if (test_superRebirth_gain >= 1 && rebirth >= 100) {
         superRebirth_gain = test_superRebirth_gain.toFixed(2);
     } else {
         superRebirth_gain = 0;
+    }
+    let test_mega_gain = round(((Math.log10(superRebirth + 1.01) - 1) ** 2.3) * up9BoostRe * up10BoostRe * up11BoostRe);
+    let mega_gain = 0;
+    if (test_mega_gain >= 1 && superRebirth >= 100) {
+        mega_gain = test_mega_gain.toFixed(2);
+    } else {
+        mega_gain = 0;
     }
     document.getElementById("AdminX").innerText =
         formatujLiczbe(adminX);
@@ -1308,6 +2204,102 @@ function updateUI() {
     } else {
         ToResearch.classList.add("hidden");
     }
+    let Me  = document.getElementById("Me");
+    if (up9BoostActive == true || MeVis == true) {
+        MeVis = true;
+        Me.classList.remove("hidden");
+    } else {
+        Me.classList.add("hidden");
+    }
+    //===================
+    let lvl = (up1Lv + up2Lv + up3Lv + up4Lv + up5Lv + up6Lv + up7Lv + up8Lv + up9Lv + up10Lv + up11Lv + up12Lv) - 1;
+    //===================
+    let Up2Re  = document.getElementById("research-upgrade-2");
+    if (lvl >= 2 || up2ReVis == true) {
+        up2ReVis = true;
+        Up2Re.classList.remove("hidden");
+    } else {
+        Up2Re.classList.add("hidden");
+    }
+    let Up3Re  = document.getElementById("research-upgrade-3");
+    if (lvl >= 5 || up3ReVis == true) {
+        up3ReVis = true;
+        Up3Re.classList.remove("hidden");
+    } else {
+        Up3Re.classList.add("hidden");
+    }
+
+    let Up4Re  = document.getElementById("research-upgrade-4");
+    if (lvl >= 11 || up4ReVis == true) {
+        up4ReVis = true;
+        Up4Re.classList.remove("hidden");
+    } else {
+        Up4Re.classList.add("hidden");
+    }
+    let Up6Re  = document.getElementById("research-upgrade-6");
+    if (lvl >= 4 || up6ReVis == true) {
+        up6ReVis = true;
+        Up6Re.classList.remove("hidden");
+    } else {
+        Up6Re.classList.add("hidden");
+    }
+    let Up7Re  = document.getElementById("research-upgrade-7");
+    if (lvl >= 7 || up7ReVis == true) {
+        up7ReVis = true;
+        Up7Re.classList.remove("hidden");
+    } else {
+        Up7Re.classList.add("hidden");
+    }
+    let Up8Re  = document.getElementById("research-upgrade-8");
+    if (lvl >= 18 || up8ReVis == true) {
+        up8ReVis = true;
+        Up8Re.classList.remove("hidden");
+    } else {
+        Up8Re.classList.add("hidden");
+    }
+    let Up9Re  = document.getElementById("research-upgrade-9");
+    if (lvl >= 10 || up9ReVis == true) {
+        up9ReVis = true;
+        Up9Re.classList.remove("hidden");
+    } else {
+        Up9Re.classList.add("hidden");
+    }
+    let Up10Re  = document.getElementById("research-upgrade-10");
+    if (lvl >= 12 || up10ReVis == true) {
+        up10ReVis = true;
+        Up10Re.classList.remove("hidden");
+    } else {
+        Up10Re.classList.add("hidden");
+    }
+    let Up11Re  = document.getElementById("research-upgrade-11");
+    if (lvl >= 16 || up11ReVis == true) {
+        up11ReVis = true;
+        Up11Re.classList.remove("hidden");
+    } else {
+        Up11Re.classList.add("hidden");
+    }
+    let Up12Re  = document.getElementById("research-upgrade-12");
+    if (lvl >= 40 || up12ReVis == true) {
+        up12ReVis = true;
+        Up12Re.classList.remove("hidden");
+    } else {
+        Up12Re.classList.add("hidden");
+    }
+    let R  = document.getElementById("R");
+    if (multiplierGain >= 1 || RVis == true) {
+        RVis = true;
+        R.classList.remove("hidden");
+    } else {
+        R.classList.add("hidden");
+    }
+    let sR  = document.getElementById("S-R");
+    if (rebirthGain >= 1 || sRVis == true) {
+        sRVis = true;
+        sR.classList.remove("hidden");
+    } else {
+        sR.classList.add("hidden");
+    }
+    //======================
     document.getElementById("research-money-cost").innerText =
         formatujLiczbe(researchersMoneyCost);
     let btnResMoney = document.getElementById("btn-research-money");
@@ -1404,14 +2396,10 @@ function updateUI() {
     document.getElementById("superRebirth-re").innerText =
         "Super Rebirth: " + formatujLiczbe(superRebirth);
     //==========
-    document.getElementById("researchers-teraz").innerText =
-        currentResearchers;
-    document.getElementById("researchers-suma").innerText =
-        researchers;
-    document.getElementById("research-speed-okno").innerText =
-        formatujLiczbe(łącznaPrędkość);
-    document.getElementById("researchers-spending").innerText =
-        researchersSpending;
+    document.querySelectorAll(".researchers-teraz").forEach(el => el.innerText = currentResearchers);
+    document.querySelectorAll(".researchers-suma").forEach(el => el.innerText = researchers);
+    document.querySelectorAll(".research-speed-okno").forEach(el => el.innerText = formatujLiczbe(łącznaPrędkość));
+    document.querySelectorAll(".researchers-spending").forEach(el => el.innerText = researchersSpending)
     //==========
     document.getElementById("up1-lv").innerText =
         up1Lv;
@@ -1525,4 +2513,234 @@ function updateUI() {
         up8Researchers;
     let progress8 = (up8TimeIs / up8TimeLeft) * 100;
     document.getElementById("up8-progress").style.width = progress8 + "%";
+    //==========
+    researchSpeedUpgradesMulti = up8BoostRe * up6BoostRe;
+    document.getElementById("up9-lv").innerText =
+        up9Lv;
+    document.getElementById("up9-boost").innerText =
+        formatujLiczbe(up9BoostRe);
+    document.getElementById("up9-time-is").innerText =
+        formatujLiczbe(up9TimeIs);
+    document.getElementById("up9-time-left").innerText =
+        formatujLiczbe(up9TimeLeft);
+    document.getElementById("up9-researchers").innerText =
+        up9Researchers;
+    let progress9 = (up9TimeIs / up9TimeLeft) * 100;
+    document.getElementById("up9-progress").style.width = progress9 + "%";
+    //==========
+    document.getElementById("mega_amount").innerText =
+        "Mega: " + formatujLiczbe(mega);
+    document.getElementById("mega_gain").innerText =
+        formatujLiczbe(mega_gain);
+    let btnMega = document.getElementById("btn-mega");
+    if (superRebirth < 100) {
+        btnMega.classList.add("btn-locked");
+    } else {
+        btnMega.classList.remove("btn-locked");
+    }
+    document.getElementById("up10-lv").innerText =
+        up10Lv;
+    document.getElementById("up10-boost").innerText =
+        formatujLiczbe(up10BoostRe);
+    document.getElementById("up10-time-is").innerText =
+        formatujLiczbe(up10TimeIs);
+    document.getElementById("up10-time-left").innerText =
+        formatujLiczbe(up10TimeLeft);
+    document.getElementById("up10-researchers").innerText =
+        up10Researchers;
+    let progress10 = (up10TimeIs / up10TimeLeft) * 100;
+    document.getElementById("up10-progress").style.width = progress10 + "%";
+   //===========
+    let test_up11_boost_re = round((1 + 0.33 * Math.log10(Math.log10(Math.max(1, mega) + 5) + 0.35)) ** (1 + (up11Lv / 5)));
+    if (up11BoostActive == true && mega > 0) {
+        up11BoostRe = test_up11_boost_re;
+    }
+    document.getElementById("up11-lv").innerText =
+        up11Lv;
+    document.getElementById("up11-boost").innerText =
+        formatujLiczbe(up11BoostRe);
+    document.getElementById("up11-time-is").innerText =
+        formatujLiczbe(up11TimeIs);
+    document.getElementById("up11-time-left").innerText =
+        formatujLiczbe(up11TimeLeft);
+    document.getElementById("up11-researchers").innerText =
+        up11Researchers;
+    let progress11 = (up11TimeIs / up11TimeLeft) * 100;
+    document.getElementById("up11-progress").style.width = progress11 + "%";
+    //=============
+    document.getElementById("up12-lv").innerText =
+        up12Lv;
+    document.getElementById("up12-time-is").innerText =
+        formatujLiczbe(up12TimeIs);
+    document.getElementById("up12-time-left").innerText =
+        formatujLiczbe(up12TimeLeft);
+    document.getElementById("up12-researchers").innerText =
+        up12Researchers;
+    if (up12Lv == 0){
+        let progress12 = (up12TimeIs / up12TimeLeft) * 100;
+        document.getElementById("up12-progress").style.width = progress12 + "%";
+   }
+    else{
+        document.getElementById("up12-progress").style.width = "0%";
+        up12TimeLeft = "MAX";
+        up12TimeIs = "MAX";
+    }
+    document.getElementById("multiplier-time-is").innerText =
+        formatujLiczbe(multiplierGainTimeIs);
+    document.getElementById("multiplier-time-left").innerText =
+        formatujLiczbe(multiplierGainTimeLeft);
+    document.getElementById("multiplier-researchers").innerText =
+        multiplierGainResearchers;
+    document.getElementById("multiplier-gain").innerText =
+        multiplierGain;
+    document.getElementById("multiplier-gain-1").innerText =
+        multiplierGain;
+    document.getElementById("multiplier-gain-test").innerText =
+        multiplierGainTest;
+    if (multiplierGainTest != "MAX"){
+        let progressMultiplierGain = (multiplierGainTimeIs / multiplierGainTimeLeft) * 100;
+        document.getElementById("multiplier-progress").style.width = progressMultiplierGain + "%";
+    }
+    else{
+        document.getElementById("multiplier-progress").style.width = "0%";
+        multiplierGainTimeLeft= "MAX";
+        multiplierGainTimeIs = "MAX";
+    }
+    document.getElementById("multiplier-time-time-is").innerText =
+        formatujLiczbe(multiplierTimeTimeIs);
+    document.getElementById("multiplier-time-time-left").innerText =
+        formatujLiczbe(multiplierTimeTimeLeft);
+    document.getElementById("multiplier-time-researchers").innerText =
+        multiplierTimeResearchers;
+    if (multiplierTimeTest != "MAX") {
+        document.getElementById("multiplier-time").innerText =
+            round(multiplierTime);
+        document.getElementById("multiplier-time-1").innerText =
+            round(multiplierTime);
+        document.getElementById("multiplier-time-test").innerText =
+            round(multiplierTimeTest);
+    }
+    else {
+        document.getElementById("multiplier-time").innerText =
+            round(multiplierTime);
+        document.getElementById("multiplier-time-1").innerText =
+            round(multiplierTime);
+        document.getElementById("multiplier-time-test").innerText =
+            multiplierTimeTest;
+    }
+    if (multiplierTimeTest != "MAX"){
+        let progressMultiplierTime = (multiplierTimeTimeIs / multiplierTimeTimeLeft) * 100;
+        document.getElementById("multiplier-time-progress").style.width = progressMultiplierTime + "%";
+    }
+    else{
+        document.getElementById("multiplier-time-progress").style.width = "0%";
+        multiplierTimeTimeLeft= "MAX";
+        multiplierTimeTimeIs = "MAX";
+    }
+    document.getElementById("rebirth-time-is").innerText =
+        formatujLiczbe(rebirthGainTimeIs);
+    document.getElementById("rebirth-time-left").innerText =
+        formatujLiczbe(rebirthGainTimeLeft);
+    document.getElementById("rebirth-researchers").innerText =
+        rebirthGainResearchers;
+    document.getElementById("rebirth-gain").innerText =
+        rebirthGain;
+    document.getElementById("rebirth-gain-1").innerText =
+        rebirthGain;
+    document.getElementById("rebirth-gain-test").innerText =
+        rebirthGainTest;
+    if (rebirthGainTest != "MAX"){
+        let progressRebirthGain = (rebirthGainTimeIs / rebirthGainTimeLeft) * 100;
+        document.getElementById("rebirth-progress").style.width = progressRebirthGain + "%";
+    }
+    else{
+        document.getElementById("rebirth-progress").style.width = "0%";
+        rebirthGainTimeLeft= "MAX";
+        rebirthGainTimeIs = "MAX";
+    }
+    document.getElementById("rebirth-time-time-is").innerText =
+        formatujLiczbe(rebirthTimeTimeIs);
+    document.getElementById("rebirth-time-time-left").innerText =
+        formatujLiczbe(rebirthTimeTimeLeft);
+    document.getElementById("rebirth-time-researchers").innerText =
+        rebirthTimeResearchers;
+    if (rebirthTimeTest != "MAX") {
+        document.getElementById("rebirth-time").innerText =
+            round(rebirthTime);
+        document.getElementById("rebirth-time-1").innerText =
+            round(rebirthTime);
+        document.getElementById("rebirth-time-test").innerText =
+            round(rebirthTimeTest);
+    }
+    else {
+        document.getElementById("rebirth-time").innerText =
+            round(rebirthTime);
+        document.getElementById("rebirth-time-1").innerText =
+            round(rebirthTime);
+        document.getElementById("rebirth-time-test").innerText =
+            rebirthTimeTest;
+    }
+    if (rebirthTimeTest != "MAX"){
+        let progressRebirthTime = (rebirthTimeTimeIs / rebirthTimeTimeLeft) * 100;
+        document.getElementById("rebirth-time-progress").style.width = progressRebirthTime + "%";
+    }
+    else{
+        document.getElementById("rebirth-time-progress").style.width = "0%";
+        rebirthTimeTimeLeft= "MAX";
+        rebirthTimeTimeIs = "MAX";
+    }
+
+
+    document.getElementById("superRebirth-time-is").innerText =
+        formatujLiczbe(superRebirthGainTimeIs);
+    document.getElementById("superRebirth-time-left").innerText =
+        formatujLiczbe(superRebirthGainTimeLeft);
+    document.getElementById("superRebirth-researchers").innerText =
+        superRebirthGainResearchers;
+    document.getElementById("superRebirth-gain").innerText =
+        superRebirthGain;
+    document.getElementById("superRebirth-gain-1").innerText =
+        superRebirthGain;
+    document.getElementById("superRebirth-gain-test").innerText =
+        superRebirthGainTest;
+    if (superRebirthGainTest != "MAX"){
+        let progressSuperRebirthGain = (superRebirthGainTimeIs / superRebirthGainTimeLeft) * 100;
+        document.getElementById("superRebirth-progress").style.width = progressSuperRebirthGain + "%";
+    }
+    else{
+        document.getElementById("superRebirth-progress").style.width = "0%";
+        superRebirthGainTimeLeft= "MAX";
+        superRebirthGainTimeIs = "MAX";
+    }
+    document.getElementById("superRebirth-time-time-is").innerText =
+        formatujLiczbe(superRebirthTimeTimeIs);
+    document.getElementById("superRebirth-time-time-left").innerText =
+        formatujLiczbe(superRebirthTimeTimeLeft);
+    document.getElementById("superRebirth-time-researchers").innerText =
+        superRebirthTimeResearchers;
+    if (superRebirthTimeTest != "MAX") {
+        document.getElementById("superRebirth-time").innerText =
+            round(superRebirthTime);
+        document.getElementById("superRebirth-time-1").innerText =
+            round(superRebirthTime);
+        document.getElementById("superRebirth-time-test").innerText =
+            round(superRebirthTimeTest);
+    }
+    else {
+        document.getElementById("superRebirth-time").innerText =
+            round(superRebirthTime);
+        document.getElementById("superRebirth-time-1").innerText =
+            round(superRebirthTime);
+        document.getElementById("superRebirth-time-test").innerText =
+            superRebirthTimeTest;
+    }
+    if (superRebirthTimeTest != "MAX"){
+        let progressSuperRebirthTime = (superRebirthTimeTimeIs / superRebirthTimeTimeLeft) * 100;
+        document.getElementById("superRebirth-time-progress").style.width = progressSuperRebirthTime + "%";
+    }
+    else{
+        document.getElementById("superRebirth-time-progress").style.width = "0%";
+        superRebirthTimeTimeLeft= "MAX";
+        superRebirthTimeTimeIs = "MAX";
+    }
 }

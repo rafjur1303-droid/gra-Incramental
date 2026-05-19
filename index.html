@@ -40,6 +40,11 @@
           Gain: <span id="superRebirth_gain">0</span> SR</button>
         <h1 id = "superRebirth_amount">Super Rebirth: 1</h1>
       </div>
+      <div id = "Me" class = "superRebirth-bar">
+        <button id = "btn-mega" onclick="buyMega()">Reset: SR , R , M , $<br>
+          Gain: <span id="mega_gain">0</span> Me</button>
+        <h1 id = "mega_amount">Mega: 1</h1>
+      </div>
       <div class = "firstRow">
         <button id = "btn-X-ADMIN">x<span id = "AdminX"></span></button>
       </div>
@@ -213,16 +218,16 @@
       </div>
     </div>
     <div id="research-tech" class="sub-tab">
-      <div id = "spending-bar">
-        <button id = "research-amount-bar">You have:<br>
-        <span id = "researchers-teraz"></span>/<span id = "researchers-suma"></span>RE</button>
-        <button id = "research-speed-bar">Research speed:<br>
-        <span id = "research-speed-okno"></span></button>
-        <button id = "recall-bar" onclick="Recall()">Recall<br>
-        all RE</button>
-        <button id = "research-spending-bar">RE spending:<br>
-        <span id = "researchers-spending"></span></button>
-        <div id="spending-grid">
+      <div class = "spending-bar">
+        <button class = "research-amount-bar">You have:<br>
+          <span class = "researchers-teraz"></span>/<span class = "researchers-suma"></span>RE</button>
+        <button class = "research-speed-bar">Research speed:<br>
+          <span class = "research-speed-okno"></span></button>
+        <button class = "recall-bar" onclick="Recall()">Recall<br>
+          all RE</button>
+        <button class = "research-spending-bar">RE spending:<br>
+          <span class = "researchers-spending"></span></button>
+        <div class ="spending-grid">
           <button onclick="reserchers_add1()">+1</button>
           <button onclick="reserchers_min1()">-1</button>
           <button onclick="reserchers_pro10()">%10</button>
@@ -233,7 +238,7 @@
           <button onclick="reserchers_min100()">-100</button>
           <button onclick="reserchers_pro100()">%100</button>
         </div>
-        <button id = "reset-spending" onclick="reserchers_reset()">RESET</button>
+        <button class = "reset-spending" onclick="reserchers_reset()">RESET</button>
       </div>
       <div class = "first-row-re">
         <button id = "research-upgrade-1" onclick="upgrade1Research()">Lv <span id = "up1-lv"></span><br>
@@ -327,9 +332,155 @@
           </div>
         </button>
       </div>
+      <div class = "last-row-re">
+        <button id = "research-upgrade-9" onclick="upgrade9Research()">Lv <span id = "up9-lv"></span><br>
+          Unlock and boost new stat<br>
+          (x<span id = "up9-boost"></span>)<br>
+          RE <span id = "up9-researchers"></span><br>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="up9-progress"></div>
+            <span class="progress-text">
+        <span id="up9-time-is"></span>s/<span id="up9-time-left"></span>s
+              </span>
+          </div>
+        </button>
+        <button id = "research-upgrade-10" onclick="upgrade10Research()">Lv <span id = "up10-lv"></span><br>
+          Me x1.05<br>
+          (x<span id = "up10-boost"></span>)<br>
+          RE <span id = "up10-researchers"></span><br>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="up10-progress"></div>
+            <span class="progress-text">
+        <span id="up10-time-is"></span>s/<span id="up10-time-left"></span>s
+              </span>
+          </div>
+        </button>
+        <button id = "research-upgrade-11" onclick="upgrade11Research()">Lv <span id = "up11-lv"></span><br>
+          Me boost all stats<br>
+          (x<span id = "up11-boost"></span>)<br>
+          RE <span id = "up11-researchers"></span><br>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="up11-progress"></div>
+            <span class="progress-text">
+        <span id="up11-time-is"></span>s/<span id="up11-time-left"></span>s
+              </span>
+          </div>
+        </button>
+        <button id = "research-upgrade-12" onclick="upgrade12Research()">Lv <span id = "up12-lv"></span><br>
+          Unlock ???<br>
+          RE <span id = "up12-researchers"></span><br>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="up12-progress"></div>
+            <span class="progress-text">
+        <span id="up12-time-is"></span>s/<span id="up12-time-left"></span>s
+              </span>
+          </div>
+        </button>
+      </div>
     </div>
     <div id="research-auto" class="sub-tab">
-      <h2>Research3</h2>
+        <div class = "spending-bar">
+          <button class = "research-amount-bar">You have:<br>
+            <span class = "researchers-teraz"></span>/<span class = "researchers-suma"></span>RE</button>
+          <button class = "research-speed-bar">Research speed:<br>
+            <span class = "research-speed-okno"></span></button>
+          <button class = "recall-bar" onclick="Recall()">Recall<br>
+            all RE</button>
+          <button class = "research-spending-bar">RE spending:<br>
+            <span class = "researchers-spending"></span></button>
+          <div class ="spending-grid">
+            <button onclick="reserchers_add1()">+1</button>
+            <button onclick="reserchers_min1()">-1</button>
+            <button onclick="reserchers_pro10()">%10</button>
+            <button onclick="reserchers_add10()">+10</button>
+            <button onclick="reserchers_min10()">-10</button>
+            <button onclick="reserchers_pro25()">%25</button>
+            <button onclick="reserchers_add100()">+100</button>
+            <button onclick="reserchers_min100()">-100</button>
+            <button onclick="reserchers_pro100()">%100</button>
+          </div>
+          <button class = "reset-spending" onclick="reserchers_reset()">RESET</button>
+        </div>
+
+        <div class = "first-row-au">
+          <button id = "research-multiplier-info">Every <span id = "multiplier-time"></span>s<br>
+            you will gain <span id = "multiplier-gain"></span>%<br>
+            of M gain
+          </button>
+          <button id = "research-multiplier" onclick="multiplierGainAutomation()">Increase %<br>
+            <span id = "multiplier-gain-1"></span>% -----> <span id = "multiplier-gain-test"></span>%<br>
+            RE <span id = "multiplier-researchers"></span><br>
+            <div class="progress-bar-container">
+              <div class="progress-bar" id="multiplier-progress"></div>
+              <span class="progress-text">
+              <span id="multiplier-time-is"></span>s/<span id="multiplier-time-left"></span>s
+            </span>
+            </div>
+          </button>
+          <button id = "research-time-multiplier" onclick="multiplierTimeAutomation()">Decrease time<br>
+            <span id = "multiplier-time-1"></span>s -----> <span id = "multiplier-time-test"></span>s<br>
+            RE <span id = "multiplier-time-researchers"></span><br>
+            <div class="progress-bar-container">
+              <div class="progress-bar" id="multiplier-time-progress"></div>
+              <span class="progress-text">
+              <span id="multiplier-time-time-is"></span>s/<span id="multiplier-time-time-left"></span>s
+            </span>
+            </div>
+          </button>
+        </div>
+      <div id ="R"class = "second-row-au">
+        <button id = "research-rebirth-info">Every <span id = "rebirth-time"></span>s<br>
+          you will gain <span id = "rebirth-gain"></span>%<br>
+          of R gain
+        </button>
+        <button id = "research-rebirth" onclick="rebirthGainAutomation()">Increase %<br>
+          <span id = "rebirth-gain-1"></span>% -----> <span id = "rebirth-gain-test"></span>%<br>
+          RE <span id = "rebirth-researchers"></span><br>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="rebirth-progress"></div>
+            <span class="progress-text">
+              <span id="rebirth-time-is"></span>s/<span id="rebirth-time-left"></span>s
+            </span>
+          </div>
+        </button>
+        <button id = "research-time-rebirth" onclick="rebirthTimeAutomation()">Decrease time<br>
+          <span id = "rebirth-time-1"></span>s -----> <span id = "rebirth-time-test"></span>s<br>
+          RE <span id = "rebirth-time-researchers"></span><br>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="rebirth-time-progress"></div>
+            <span class="progress-text">
+              <span id="rebirth-time-time-is"></span>s/<span id="rebirth-time-time-left"></span>s
+            </span>
+          </div>
+        </button>
+      </div>
+      <div id = "S-R"class = "last-row-au">
+        <button id = "research-superRebirth-info">Every <span id = "superRebirth-time"></span>s<br>
+          you will gain <span id = "superRebirth-gain"></span>%<br>
+          of SR gain
+        </button>
+        <button id = "research-superRebirth" onclick="superRebirthGainAutomation()">Increase %<br>
+          <span id = "superRebirth-gain-1"></span>% -----> <span id = "superRebirth-gain-test"></span>%<br>
+          RE <span id = "superRebirth-researchers"></span><br>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="superRebirth-progress"></div>
+            <span class="progress-text">
+              <span id="superRebirth-time-is"></span>s/<span id="superRebirth-time-left"></span>s
+            </span>
+          </div>
+        </button>
+        <button id = "research-time-superRebirth" onclick="superRebirthTimeAutomation()">Decrease time<br>
+          <span id = "superRebirth-time-1"></span>s -----> <span id = "superRebirth-time-test"></span>s<br>
+          RE <span id = "superRebirth-time-researchers"></span><br>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="superRebirth-time-progress"></div>
+            <span class="progress-text">
+              <span id="superRebirth-time-time-is"></span>s/<span id="superRebirth-time-time-left"></span>s
+            </span>
+          </div>
+        </button>
+      </div>
+      </div>
     </div>
   </div>
   <script src="script.js"></script>
